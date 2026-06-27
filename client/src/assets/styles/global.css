@@ -1,0 +1,188 @@
+/* ============================================
+   全局样式 —— 蓝色卡通可爱主题
+   ============================================ */
+
+/* ── CSS 变量（蓝色主题色板） ── */
+:root {
+  --primary: #5B8DEF;
+  --primary-light: #EBF1FB;
+  --primary-dark: #3B6DD4;
+  --primary-gradient: linear-gradient(135deg, #5B8DEF, #7BA8FF);
+  --accent: #FFB74D;
+  --accent-light: #FFF3E0;
+  --bg: #F5F7FB;
+  --bg-white: #FFFFFF;
+  --text: #333333;
+  --text-light: #888888;
+  --border: #E8EDF3;
+  --success: #67C23A;
+  --danger: #F56C6C;
+  --warning: #E6A23C;
+  --shadow: 0 2px 12px rgba(91, 141, 239, 0.08);
+  --shadow-hover: 0 8px 24px rgba(91, 141, 239, 0.15);
+  --radius: 14px;
+  --radius-sm: 8px;
+  --radius-lg: 20px;
+}
+
+/* ── 全局重置 ── */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'PingFang SC', 'HarmonyOS Sans', 'Microsoft YaHei', 'Noto Sans SC', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 可爱滚动条 */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--bg); border-radius: 4px; }
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--primary), var(--primary-dark));
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover { background: var(--primary-dark); }
+
+a { color: var(--primary); text-decoration: none; }
+a:hover { color: var(--primary-dark); }
+
+/* ── Element Plus 蓝色主题覆盖 ── */
+
+/* 按钮 */
+.el-button--primary {
+  --el-button-bg-color: var(--primary);
+  --el-button-border-color: var(--primary);
+  --el-button-hover-bg-color: var(--primary-dark);
+  --el-button-hover-border-color: var(--primary-dark);
+  --el-button-active-bg-color: var(--primary-dark);
+  border-radius: var(--radius-sm) !important;
+  font-weight: 500;
+}
+.el-button {
+  border-radius: var(--radius-sm) !important;
+  transition: all 0.3s ease !important;
+}
+
+/* 输入框 */
+.el-input__wrapper {
+  border-radius: var(--radius-sm) !important;
+  transition: all 0.3s ease !important;
+}
+.el-input__wrapper:hover { box-shadow: 0 0 0 1px var(--primary) inset !important; }
+
+/* 卡片 */
+.el-card {
+  border-radius: var(--radius) !important;
+  border: none !important;
+  box-shadow: var(--shadow) !important;
+  transition: all 0.3s ease !important;
+  overflow: hidden;
+}
+.el-card:hover { box-shadow: var(--shadow-hover) !important; transform: translateY(-2px); }
+
+/* 标签/Tag */
+.el-tag {
+  border-radius: 6px !important;
+  font-weight: 500;
+}
+
+/* 分页 */
+.el-pagination .el-pager li.is-active {
+  background-color: var(--primary) !important;
+  border-radius: 6px !important;
+}
+
+/* 对话框 */
+.el-dialog {
+  border-radius: var(--radius-lg) !important;
+}
+.el-message {
+  border-radius: var(--radius-sm) !important;
+}
+
+/* 下拉菜单 */
+.el-dropdown-menu {
+  border-radius: var(--radius-sm) !important;
+  border: none !important;
+  box-shadow: var(--shadow) !important;
+}
+
+/* ── 通用工具类 ── */
+.container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+.page-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.page-title::before {
+  content: '';
+  display: inline-block;
+  width: 4px;
+  height: 24px;
+  background: var(--primary-gradient);
+  border-radius: 2px;
+}
+
+/* 卡片网格 */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 18px;
+}
+
+/* 空状态 */
+.empty-state {
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--text-light);
+}
+.empty-state .icon { font-size: 64px; display: block; margin-bottom: 16px; }
+.empty-state .text { font-size: 15px; }
+
+/* 加载动画 */
+.loading-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 300px;
+}
+
+/* 可爱的浅色背景色块 */
+.cute-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 500;
+}
+.cute-badge.blue { background: var(--primary-light); color: var(--primary); }
+.cute-badge.orange { background: var(--accent-light); color: var(--accent); }
+
+/* 价格样式 */
+.price-tag {
+  color: #F56C6C;
+  font-weight: 700;
+  font-size: 18px;
+}
+.price-tag::before { content: '¥'; font-size: 14px; }
+.original-price {
+  color: #bbb;
+  text-decoration: line-through;
+  font-size: 13px;
+  margin-left: 8px;
+}
+
+/* 响应式 */
+@media (max-width: 768px) {
+  .card-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 12px; }
+  .container { padding: 0 12px; }
+}
